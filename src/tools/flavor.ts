@@ -60,9 +60,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_taste_threshold_info",
     {
-      title: "Get Taste Threshold Info",
+      title: "Get Flavor Compound by Taste Thresholds",
       description:
-        "Filter FlavorDB molecules by taste/odor descriptor or reported threshold concentration.",
+        "Get flavor compounds filtered by a taste/odor descriptor or reported taste-threshold concentration.",
       inputSchema: tasteThresholdSchema.shape,
     },
     async ({ values }) => {
@@ -76,9 +76,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_synthesis_info",
     {
-      title: "Get Synthesis Info",
+      title: "Get Flavor Compound by Synthesis Methods",
       description:
-        "Filter FlavorDB molecules by a synthesis / production keyword (reagent, reaction, or process).",
+        "Get flavor compounds filtered by a synthesis / production keyword (reagent, reaction type, or process).",
       inputSchema: synthesisSchema.shape,
     },
     async ({ values }) => {
@@ -92,9 +92,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_trade_association_guidelines",
     {
-      title: "Get By Trade Association Guidelines",
+      title: "Get Trade Association Guidelines",
       description:
-        "Filter FlavorDB molecules by trade-association intake guideline value (mg).",
+        "Get trade-association intake guidelines for flavor compounds by guideline value (mg).",
       inputSchema: tradeAssociationGuidelinesSchema.shape,
     },
     async ({ guideline }) => {
@@ -110,9 +110,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_natural_occurrence",
     {
-      title: "Get By Natural Occurrence",
+      title: "Get Natural Occurrence Information for a Flavor Compound",
       description:
-        "Filter FlavorDB molecules by natural-occurrence phrase (source food or notation).",
+        "Get natural-occurrence information for flavor compounds by source-food phrase or notation.",
       inputSchema: naturalOccurrenceSchema.shape,
     },
     async ({ occurrence }) => {
@@ -126,9 +126,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_iofi_categorisation",
     {
-      title: "Get By IOFI Categorisation",
+      title: "Get IOFI Categorization for a Flavor Compound",
       description:
-        "Filter FlavorDB molecules by IOFI category (Natural / Nature Identical / Artificial variants).",
+        "Get IOFI categorisation (Natural / Nature Identical / Artificial variants) for flavor compounds.",
       inputSchema: iofiCategorisationSchema.shape,
     },
     async ({ category }) => {
@@ -142,9 +142,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_einecs",
     {
-      title: "Get By EINECS Number",
+      title: "Get Flavor Compound by EINECS Number",
       description:
-        "Look up FlavorDB molecules by EINECS registry number (format nnn-nnn-n).",
+        "Get a flavor compound by its EINECS registry number (format nnn-nnn-n).",
       inputSchema: einecsSchema.shape,
     },
     async ({ einecs_no }) => {
@@ -158,9 +158,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_description",
     {
-      title: "Get By Description",
+      title: "Get Molecule Description for a Flavor Compound",
       description:
-        "Search FlavorDB molecules by a free-form descriptor keyword found in their description.",
+        "Get molecule descriptions for flavor compounds by a free-form descriptor keyword.",
       inputSchema: descriptionSchema.shape,
     },
     async ({ desc }) => {
@@ -174,9 +174,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_coe_approval",
     {
-      title: "Get By CoE Approval",
+      title: "Get Council of Europe Approval Status for a Flavor Compound",
       description:
-        "Filter FlavorDB molecules by Council of Europe (CoE) approval keyword or usage-level phrase.",
+        "Get the Council of Europe (CoE) approval status for flavor compounds by keyword or usage-level phrase.",
       inputSchema: coeApprovalSchema.shape,
     },
     async ({ coe_approval }) => {
@@ -190,9 +190,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_aroma_threshold_values",
     {
-      title: "Get By Aroma Threshold",
+      title: "Get Aroma Threshold Values for a Flavor Compound",
       description:
-        "Filter FlavorDB molecules by reported aroma threshold concentration (ppb / ppm).",
+        "Get reported aroma threshold values (ppb / ppm) for flavor compounds.",
       inputSchema: aromaThresholdSchema.shape,
     },
     async ({ threshold }) => {
@@ -208,8 +208,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_nas_range",
     {
-      title: "Get By NAS Number",
-      description: "Look up FlavorDB molecules by NAS number (21–8811).",
+      title: "Get Flavor Compound by National Academy of Sciences Number",
+      description:
+        "Get a flavor compound by its National Academy of Sciences (NAS) number (21–8811).",
       inputSchema: nasRangeSchema.shape,
     },
     async ({ NAS_No }) => {
@@ -221,8 +222,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_jecfa_range",
     {
-      title: "Get By JECFA Number",
-      description: "Look up FlavorDB molecules by JECFA number (1–1897).",
+      title: "Get Flavor Compound by JECFA Number",
+      description: "Get a flavor compound by its JECFA number (1–1897).",
       inputSchema: jecfaRangeSchema.shape,
     },
     async ({ JECFA_No }) => {
@@ -234,8 +235,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_fl_no_range",
     {
-      title: "Get By FL Number",
-      description: "Look up FlavorDB molecules by FL number (1001–56000).",
+      title: "Get Flavor Compound by FLAVIS Number",
+      description: "Get a flavor compound by its FLAVIS (FL) number (1001–56000).",
       inputSchema: flNoRangeSchema.shape,
     },
     async ({ FL_No }) => {
@@ -247,8 +248,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_fema_range",
     {
-      title: "Get By FEMA Number",
-      description: "Look up FlavorDB molecules by FEMA number (2001–4905).",
+      title: "Get Flavor Compound by FEMA Number",
+      description: "Get a flavor compound by its FEMA number (2001–4905).",
       inputSchema: femaRangeSchema.shape,
     },
     async ({ FEMA_No }) => {
@@ -260,8 +261,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_coe_range",
     {
-      title: "Get By CoE Number",
-      description: "Look up FlavorDB molecules by Council of Europe (CoE) number (2–2100).",
+      title: "Get Flavor Compound by Council of Europe Number",
+      description:
+        "Get a flavor compound by its Council of Europe (CoE) number (2–2100).",
       inputSchema: coeRangeSchema.shape,
     },
     async ({ CoE_No }) => {
@@ -275,8 +277,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_surface_area_range",
     {
-      title: "Get By Surface Area",
-      description: "Filter FlavorDB molecules by molecular surface area (24.63–1000).",
+      title: "Find Flavor Compounds by Surface Area",
+      description: "Find flavor compounds by molecular surface area (24.63–1000).",
       inputSchema: surfaceAreaRangeSchema.shape,
     },
     async ({ surface_area }) => {
@@ -290,8 +292,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_rotatable_bonds_range",
     {
-      title: "Get By Rotatable Bonds",
-      description: "Filter FlavorDB molecules by rotatable-bond count (0–40).",
+      title: "Find Flavor Compounds by Rotatable Bond Count",
+      description: "Find flavor compounds by rotatable-bond count (0–40).",
       inputSchema: rotatableBondsRangeSchema.shape,
     },
     async ({ numRotatableBonds }) => {
@@ -307,8 +309,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_number_of_atoms_range",
     {
-      title: "Get By Number Of Atoms",
-      description: "Filter FlavorDB molecules by total atom count (1–150).",
+      title: "Find Flavor Compounds by Atom Count",
+      description: "Find flavor compounds by total atom count (1–150).",
       inputSchema: numberOfAtomsRangeSchema.shape,
     },
     async ({ numberOfAtoms }) => {
@@ -324,8 +326,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_num_rings_range",
     {
-      title: "Get By Ring Count",
-      description: "Filter FlavorDB molecules by ring count (0–10).",
+      title: "Find Flavor Compounds by Ring Count",
+      description: "Find flavor compounds by ring count (0–10).",
       inputSchema: numRingsRangeSchema.shape,
     },
     async ({ numRings }) => {
@@ -339,8 +341,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_energy_range",
     {
-      title: "Get By Energy",
-      description: "Filter FlavorDB molecules by molecular energy value (-20–200).",
+      title: "Find Flavor Compounds by Energy",
+      description: "Find flavor compounds by molecular energy value (-20–200).",
       inputSchema: energyRangeSchema.shape,
     },
     async ({ energy }) => {
@@ -354,8 +356,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_aromatic_rings_range",
     {
-      title: "Get By Aromatic Rings",
-      description: "Filter FlavorDB molecules by aromatic-ring count (0–10).",
+      title: "Find Flavor Compounds by Aromatic Ring Count",
+      description: "Find flavor compounds by aromatic-ring count (0–10).",
       inputSchema: aromaticRingsRangeSchema.shape,
     },
     async ({ numberOfAromaticRings }) => {
@@ -371,8 +373,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_aromatic_bonds_range",
     {
-      title: "Get By Aromatic Bonds",
-      description: "Filter FlavorDB molecules by aromatic-bond count (0–60).",
+      title: "Find Flavor Compounds by Aromatic Bond Count",
+      description: "Find flavor compounds by aromatic-bond count (0–60).",
       inputSchema: aromaticBondsRangeSchema.shape,
     },
     async ({ numberOfAromaticBonds }) => {
@@ -388,8 +390,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_alogp_range",
     {
-      title: "Get By aLogP",
-      description: "Filter FlavorDB molecules by aLogP partition coefficient (-10–10).",
+      title: "Find Flavor Compounds by Fat-Solubility",
+      description:
+        "Find flavor compounds by fat-solubility, expressed as aLogP (-10–10).",
       inputSchema: alogpRangeSchema.shape,
     },
     async ({ alogp }) => {
@@ -403,9 +406,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_by_pubchem_id_range",
     {
-      title: "Get More-Properties By PubChem CID",
+      title: "Find Flavor Compounds by PubChem ID",
       description:
-        "Look up FlavorDB more_properties rows by PubChem CID (1–100000000).",
+        "Find flavor compounds by PubChem ID via the more_properties table (1–100000000).",
       inputSchema: morePropsPubchemIdRangeSchema.shape,
     },
     async ({ pubchemId }) => {
@@ -421,8 +424,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_weight_range",
     {
-      title: "Get Molecules By Weight",
-      description: "Filter FlavorDB molecules by molecular weight (4–1000).",
+      title: "Filter Flavor Compounds by Weight Range",
+      description: "Filter flavor compounds by molecular weight range (4–1000).",
       inputSchema: molWeightRangeSchema.shape,
     },
     async ({ molecularWeight }) => {
@@ -438,8 +441,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_type",
     {
-      title: "Get Molecules By Type",
-      description: "Filter FlavorDB molecules by type (natural or synthetic).",
+      title: "Filter Flavor Compounds by their Type",
+      description: "Filter flavor compounds by type: natural or synthetic.",
       inputSchema: moleculeTypeSchema.shape,
     },
     async ({ type }) => {
@@ -453,8 +456,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_hbd_count_range",
     {
-      title: "Get Molecules By H-Bond Donor Count",
-      description: "Filter FlavorDB molecules by hydrogen-bond donor count (0–20).",
+      title: "Filter Flavor Compounds by H-Bond Donor Count",
+      description: "Filter flavor compounds by hydrogen-bond donor count (0–20).",
       inputSchema: hbdCountRangeSchema.shape,
     },
     async ({ hbdCount }) => {
@@ -470,9 +473,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_tpsa_range",
     {
-      title: "Get Molecules By TPSA",
+      title: "Find Flavor Compounds by Polar Surface Area",
       description:
-        "Filter FlavorDB molecules by topological polar surface area (0–500).",
+        "Find flavor compounds by topological polar surface area (TPSA, 0–500).",
       inputSchema: tpsaRangeSchema.shape,
     },
     async ({ topologicalPolarSurfaceArea }) => {
@@ -488,8 +491,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_pubchem_id_range",
     {
-      title: "Get Molecules By PubChem CID",
-      description: "Look up FlavorDB molecules by PubChem CID (4–100000000).",
+      title: "Find Flavor Compound by PubChem ID",
+      description:
+        "Find a flavor compound by PubChem ID via the molecules_data table (4–100000000).",
       inputSchema: moleculesPubchemIdRangeSchema.shape,
     },
     async ({ pubchemId }) => {
@@ -503,8 +507,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_monoisotopic_mass_range",
     {
-      title: "Get Molecules By Monoisotopic Mass",
-      description: "Filter FlavorDB molecules by monoisotopic mass (4–1000).",
+      title: "Find Flavor Compounds by Monoisotopic Mass",
+      description: "Find flavor compounds by monoisotopic mass (4–1000).",
       inputSchema: monoisotopicMassRangeSchema.shape,
     },
     async ({ monoisotopicMass }) => {
@@ -520,8 +524,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_heavy_atom_count_range",
     {
-      title: "Get Molecules By Heavy Atom Count",
-      description: "Filter FlavorDB molecules by heavy-atom count (1–100).",
+      title: "Find Flavor Compounds by Heavy Atom Count",
+      description: "Find flavor compounds by heavy-atom count (1–100).",
       inputSchema: heavyAtomCountRangeSchema.shape,
     },
     async ({ heavyAtomCount }) => {
@@ -537,8 +541,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_functional_groups",
     {
-      title: "Get Molecules By Functional Groups",
-      description: "Filter FlavorDB molecules by functional-group name.",
+      title: "Find Flavor Compound by its Functional Group",
+      description: "Find flavor compounds by functional-group name.",
       inputSchema: functionalGroupsSchema.shape,
     },
     async ({ functional_groups }) => {
@@ -554,8 +558,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_flavor_profile",
     {
-      title: "Get Molecules By Flavor Profile",
-      description: "Filter FlavorDB molecules by flavor-profile descriptor.",
+      title: "Find Flavor Compound by General Flavor Profile",
+      description: "Find flavor compounds by a general flavor-profile descriptor.",
       inputSchema: flavorProfileSchema.shape,
     },
     async ({ flavor_profile }) => {
@@ -569,8 +573,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_fema_flavor_profile",
     {
-      title: "Get Molecules By FEMA Flavor Profile",
-      description: "Filter FlavorDB molecules by FEMA flavor-profile descriptor.",
+      title: "Get FEMA Flavor Profile for a Flavor Compound",
+      description: "Get the FEMA flavor profile for flavor compounds by descriptor.",
       inputSchema: femaFlavorProfileSchema.shape,
     },
     async ({ fema_flavor_profile }) => {
@@ -586,8 +590,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecules_by_common_name",
     {
-      title: "Get Molecules By Common Name",
-      description: "Look up FlavorDB molecules by common / trivial name.",
+      title: "Find Flavor Compound by its Common Name",
+      description: "Find a flavor compound by its common / trivial name.",
       inputSchema: commonNameSchema.shape,
     },
     async ({ common_name }) => {
@@ -601,8 +605,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_molecule_entities_by_pubchem_id",
     {
-      title: "Get Molecule Entities By PubChem CID",
-      description: "Fetch entities linked to a given molecule by its PubChem CID.",
+      title: "Get Ingredients Containing a Molecule",
+      description:
+        "Given a molecule's PubChem ID, return all ingredients that contain that molecule.",
       inputSchema: moleculeEntitiesByIdSchema.shape,
     },
     async ({ pubchemId }) => {
@@ -619,8 +624,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_entities_by_natural_source",
     {
-      title: "Get Entities By Natural Source",
-      description: "Filter FlavorDB entities by natural-source taxon or common name.",
+      title: "Get Food by their Natural Source",
+      description:
+        "Get foods (ingredients) by their natural source (taxon or common name).",
       inputSchema: naturalSourceSchema.shape,
     },
     async ({ natural_source_name }) => {
@@ -634,9 +640,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_entities_by_name_and_category",
     {
-      title: "Get Entities By Name And Category",
-      description:
-        "Look up FlavorDB entities by alias name constrained to a category.",
+      title: "Get Ingredient by Name and Category",
+      description: "Get an ingredient by alias name constrained to a food category.",
       inputSchema: nameAndCategorySchema.shape,
     },
     async ({ entity_alias, category }) => {
@@ -651,8 +656,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_entities_by_alias_readable",
     {
-      title: "Get Entities By Readable Alias",
-      description: "Look up FlavorDB entities by human-readable alias.",
+      title: "Get Ingredient by Readable Name",
+      description: "Get an ingredient by its human-readable name.",
       inputSchema: entityAliasReadableSchema.shape,
     },
     async ({ entity_alias_readable }) => {
@@ -666,8 +671,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_entity_molecules",
     {
-      title: "Get Entity Molecules",
-      description: "Fetch molecules linked to a FlavorDB entity by entity ID.",
+      title: "Get Molecules in an Ingredient",
+      description:
+        "Given an ingredient ID, return all flavor molecules in that ingredient, sorted from rarest to most common.",
       inputSchema: entityIdPathSchema.shape,
     },
     async ({ entityId }) => {
@@ -682,9 +688,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_entity_molecules_compact",
     {
-      title: "Get Entity Molecules (Compact)",
+      title: "Get Molecules in an Ingredient (Compact)",
       description:
-        "Fetch a compact list of molecules linked to a FlavorDB entity by entity ID.",
+        "Same as get_entity_molecules but each molecule carries only pubchem_id and common_name.",
       inputSchema: entityIdPathSchema.shape,
     },
     async ({ entityId }) => {
@@ -701,8 +707,8 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_food_by_alias",
     {
-      title: "Get Food By Alias",
-      description: "Fetch flavor-pairing information for a food by its alias.",
+      title: "Get Flavor Pairings by Ingredient Name",
+      description: "Get flavor pairings for an ingredient by its alias name.",
       inputSchema: foodByAliasSchema.shape,
     },
     async ({ food_pair }) => {
@@ -716,9 +722,9 @@ export function registerFlavorTools(server: McpServer) {
   server.registerTool(
     "get_connection_links",
     {
-      title: "Get Connection Links",
+      title: "Get Dataset Connection Links (FDB Playground)",
       description:
-        "Fetch flavor-connection links for an entity. Provide exactly one of: entity_id, entity_alias_readable, or ingredient.",
+        "Fetch dataset-connection links for an ingredient in the FDB Playground. Provide exactly one of: entity_id, entity_alias_readable, or ingredient.",
       inputSchema: connectionLinksSchema.shape,
     },
     async ({ entity_id, entity_alias_readable, ingredient }) => {
