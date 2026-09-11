@@ -36,6 +36,22 @@ export async function get(
     try {
         const response = await axios.get(url, {
             params,
+            // FlavorDB expects repeated params for multi-value filters
+            // (?values=acid&values=alcohol), not bracketed (values[]=…) or
+            // comma-joined. Skip nulls/undefineds so optional params don't
+            // become ?foo= empty strings.
+            paramsSerializer: (p) => {
+                const usp = new URLSearchParams();
+                for (const [k, v] of Object.entries(p)) {
+                    if (v === undefined || v === null) continue;
+                    if (Array.isArray(v)) {
+                        for (const item of v) usp.append(k, String(item));
+                    } else {
+                        usp.append(k, String(v));
+                    }
+                }
+                return usp.toString();
+            },
             timeout: 10000,
             headers: {
                 "Content-Type": "application/json",
