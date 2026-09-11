@@ -44,11 +44,10 @@ import {
   connectionLinksSchema,
 } from "../types.js";
 
-// Join arrays with commas so multi-value queries fit a single ?param= slot.
-// Flip to axios's default (drop the join) if the API expects repeated params.
-const toParam = (v: string | string[]) => (Array.isArray(v) ? v.join(",") : v);
-const maybeParam = (v: string | string[] | undefined) =>
-  v === undefined ? undefined : toParam(v);
+// Pass strings and arrays through unchanged; axios serializes arrays as
+// repeated params (?values=a&values=b), which is what the FlavorDB API expects.
+const toParam = (v: string | string[]) => v;
+const maybeParam = (v: string | string[] | undefined) => v;
 
 const jsonReply = (data: unknown) => ({
   content: [{ type: "text" as const, text: JSON.stringify(data, null, 2) }],
