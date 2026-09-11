@@ -13,10 +13,12 @@ export const cuisineSchema = z.object({
 
 // ---------- Shared helpers ----------
 
-// A vocabulary param accepts either one allowed value or an array of them.
-// LLM sees the full enum in the tool schema; invalid values fail zod before the API call.
+// Each FlavorDB filter endpoint accepts exactly one value per call
+// (both ?values=a,b and ?values=a&values=b are rejected by the API).
+// LLM sees the full enum in the tool schema; invalid values fail zod
+// before the API call.
 const oneOrMany = <T extends readonly [string, ...string[]]>(vals: T) =>
-  z.union([z.enum(vals), z.array(z.enum(vals)).min(1)]);
+  z.enum(vals);
 
 const intRange = (min: number, max: number) => z.number().int().min(min).max(max);
 const numRange = (min: number, max: number) => z.number().min(min).max(max);
